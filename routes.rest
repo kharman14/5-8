@@ -39,6 +39,7 @@ content-type: application/json
     "username":"D@wn10",
     "password":"c00rdin@tor",
     "displayName":"Dawn",
+    "email": "dawn10@pokemon.com",
     "info": {
         "region": "Sinnoh",
         "pokemon": "Piplup",
@@ -53,6 +54,7 @@ content-type: application/json
     "username":"letsGoh",
     "password":"futur3re@lity",
     "displayName":"Goh",
+    "email": "letsGoh@pokemon.com",
     "info": {
         "region": "Kanto",
         "pokemon": "Scorbunny",

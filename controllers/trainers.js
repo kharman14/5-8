@@ -28,6 +28,7 @@ const createTrainer = async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     displayName: req.body.displayName,
+    email: req.body.email,
     info: req.body.info
   };
   const response = await mongodb.getDb().db().collection('trainers').insertOne(trainer);
@@ -45,6 +46,7 @@ const updateTrainer = async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     displayName: req.body.displayName,
+    email: req.body.email,
     info: req.body.info
   };
   const response = await mongodb
