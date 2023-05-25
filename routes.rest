@@ -1,0 +1,100 @@
+/////// CHANGE TO TRAINER STUFF
+
+// LOCALHOST
+###
+GET http://localhost:8080/trainers
+###
+GET http://localhost:8080/contacts/6453de61560c75d5af8daa7d
+###
+GET http://localhost:8080/contacts/6453ded8560c75d5af8daa7e
+###
+GET http://localhost:8080/contacts/6453df20560c75d5af8daa7f
+
+// PRODUCTION Deploy
+###
+GET https://five-8.onrender.com/trainers
+
+### 
+GET https://five-8.onrender.com/contacts/6453de61560c75d5af8daa7d
+
+### 
+GET https://five-8.onrender.com/contacts/6453ded8560c75d5af8daa7e
+
+### 
+GET https://five-8.onrender.com/contacts/6453df20560c75d5af8daa7f
+
+///
+///Lesson 3
+///
+
+// LOCALHOST
+### Get all contacts
+GET http://localhost:8080/trainers
+
+### Get contact by id
+GET http://localhost:8080/contacts/6453de61560c75d5af8daa7d
+
+### Create contact
+POST http://localhost:8080/trainers HTTP/1.1
+content-type: application/json
+// change to trainer info
+{
+    "firstName":"Ashley",
+    "lastName":"Weaver",
+    "email":"aWeaver@test.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/2000"
+}
+
+### PUT contact
+PUT http://localhost:8080/contacts/6453de61560c75d5af8daa7d HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Krissie",
+    "lastName":"Jones",
+    "email":"kJones@gmail.com",
+    "favoriteColor":"Black",
+    "birthday":"01/26/94"
+}
+
+### DELETE contact
+DELETE http://localhost:8080/contacts/64556d79505fb7dc0840ca7b HTTP/1.1
+
+// PRODUCTION Deploy
+### Get all contacts
+GET https://five-8.onrender.com/trainers
+
+
+### Get contact by id
+GET https://five-8.onrender.com/contacts/6453de61560c75d5af8daa7d
+
+
+### Create contact
+POST https://five-8.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Ashley",
+    "lastName":"Weaver",
+    "email":"aWeaver@test.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/2000"
+}
+
+
+### PUT contact
+PUT https://five-8.onrender.com/contacts/6453de61560c75d5af8daa7d HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Krissie",
+    "lastName":"Jones",
+    "email":"kJones@test.com",
+    "favoriteColor":"Black",
+    "birthday":"01/26/94"
+}
+
+
+### DELETE contact
+DELETE https://five-8.onrender.com/contacts/64556dbd92456e69163719cd HTTP/1.1
