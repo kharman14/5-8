@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'Pokemon API'
   },
-  host: 'five-8.onrender.com',
+  host: 'week5-8.onrender.com',
   schemes: ['https']
 };
 
@@ -17,5 +17,5 @@ const endpointsFiles = ['./routes/index.js'];
 
 // Run server after it gets generated
 swaggerAutogen(outputFile, endpointsFiles, doc).then(async () => {
-  await import('./app.js');
+  await import('./server.js');
 });

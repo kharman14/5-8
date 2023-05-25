@@ -5,7 +5,7 @@
     "description": "Pokemon API",
     "version": "1.0.0"
   },
-  "host": "five-8.onrender.com",
+  "host": "week5-8.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -18,7 +18,7 @@
         "responses": {}
       }
     },
-    "/contacts/": {
+    "/trainers/": {
       "get": {
         "description": "",
         "produces": [
@@ -66,7 +66,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/trainers/{id}": {
       "get": {
         "description": "",
         "produces": [
