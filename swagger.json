@@ -53,7 +53,9 @@
                   "example": "any"
                 },
                 "info": {
-                  "example": "any"
+                  "region": "any",
+                  "pokemon": "any",
+                  "type": "any"
                 }
               }
             }
