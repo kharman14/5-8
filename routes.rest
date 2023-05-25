@@ -4,11 +4,11 @@
 ###
 GET http://localhost:8080/trainers
 ###
-GET http://localhost:8080/contacts/6453de61560c75d5af8daa7d
+GET http://localhost:8080/trainers/646faa55e0dbf9f86b44bce3
 ###
-GET http://localhost:8080/contacts/6453ded8560c75d5af8daa7e
+GET http://localhost:8080/trainers/646fab86e0dbf9f86b44bce4
 ###
-GET http://localhost:8080/contacts/6453df20560c75d5af8daa7f
+GET http://localhost:8080/trainers/646fac2de0dbf9f86b44bce5
 
 // PRODUCTION Deploy
 ###
