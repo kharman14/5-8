@@ -113,6 +113,9 @@
                 "displayName": {
                   "example": "any"
                 },
+                "email": {
+                  "example": "any"
+                },
                 "info": {
                   "example": "any"
                 }
@@ -145,6 +148,27 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/regions/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
