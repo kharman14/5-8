@@ -14,12 +14,12 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingle = async (req, res, next) => {
-  const username = new ObjectId(req.params.username);
+  const userName = new ObjectId(req.params.username);
   const result = await mongodb
     .getDb()
     .db()
     .collection('trainers')
-    .find({ username: username });
+    .find({ username: userName });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -54,7 +54,7 @@ const updateTrainer = async (req, res) => {
   if (!ObjectId.isValid(req.params.username)) {
     res.status(400).json('Must use a valid username to update a trainer.');
   }
-  const username = new ObjectId(req.params.username);
+  const userName = new ObjectId(req.params.username);
   const trainer = {
     username: req.body.username,
     password: req.body.password,
@@ -68,7 +68,7 @@ const updateTrainer = async (req, res) => {
     .getDb()
     .db()
     .collection('trainers')
-    .replaceOne({ username: username }, trainer);
+    .replaceOne({ username: userName }, trainer);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -81,8 +81,8 @@ const deleteTrainer = async (req, res) => {
   if (!ObjectId.isValid(req.params.username)) {
     res.status(400).json('Must use a valid username to delete a trainer.');
   }
-  const userId = new ObjectId(req.params.username);
-  const response = await mongodb.getDb().db().collection('trainers').deleteOne({ username: userId}, true);
+  const userName = new ObjectId(req.params.username);
+  const response = await mongodb.getDb().db().collection('trainers').deleteOne({ username: userName}, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
