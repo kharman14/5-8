@@ -20,13 +20,10 @@ const getSingle = async (req, res, next) => {
     .db()
     .collection('trainers')
     .find({ username: userName });
-    result.then((data) => {
-      res.status(200).send(data);
-    })
-  /*result.toArray().then((lists) => {
+    result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
-  })*/
+  })
   .catch((err) => {
     res.status(400).json({ message: err });
   });
