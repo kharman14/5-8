@@ -19,7 +19,7 @@ const getSingle = async (req, res, next) => {
     .getDb()
     .db()
     .collection('trainers')
-    .find({ _id: username });
+    .find({ username: username });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
