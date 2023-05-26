@@ -4,9 +4,11 @@ const saveContact = (req, res, next) => {
   const validationRule = {
     firstName: 'required|string',
     lastName: 'required|string',
+    displayName: 'required|string',
     email: 'required|email',
-    favoriteColor: 'required|string',
-    birthday: 'string'
+    region: 'string',
+    pokemon: 'required|string',
+    type: 'required|string'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

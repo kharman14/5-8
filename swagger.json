@@ -21,13 +21,16 @@
     "/trainers/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -45,6 +48,21 @@
                 },
                 "password": {
                   "example": "any"
+                },
+                "displayName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "region": {
+                  "example": "any"
+                },
+                "pokemon": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
                 }
               }
             }
@@ -54,8 +72,8 @@
           "201": {
             "description": "Created"
           },
-          "400": {
-            "description": "Bad Request"
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -66,9 +84,12 @@
     "/trainers/{username}": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
             "required": true,
             "type": "string"
@@ -78,8 +99,8 @@
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -87,7 +108,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
             "required": true,
             "type": "string"
@@ -98,6 +119,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "username": {
+                  "example": "any"
+                },
                 "password": {
                   "example": "any"
                 },
@@ -127,6 +151,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -136,7 +163,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
             "required": true,
             "type": "string"
@@ -158,6 +185,9 @@
     "/regions/{id}": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -169,12 +199,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
