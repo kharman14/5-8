@@ -3,13 +3,13 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
   try {
-    User.find({})
+    Trainer.find({})
       .then((data) => {
         res.status(200).send(data);
       })
       .catch((err) => {
         res.status(500).send({
-          message: err.message || 'Some error occurred while retrieving Trainers.'
+          message: err.message || 'Some error occurred while retrieving trainers.'
         });
       });
   } catch (err) {
@@ -32,7 +32,7 @@ const getSingle = async (req, res, next) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message: err.message || 'Some error occurred while retrieving Trainer.'
+          message: err.message || 'Some error occurred while retrieving trainer.'
         });
       });
   } catch (err) {
@@ -72,7 +72,7 @@ const createTrainer = async (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message: err.message || 'Some error occurred while creating the Trainer.'
+          message: err.message || 'Some error occurred while creating the trainer.'
         });
       });
   } catch (err) {
@@ -119,7 +119,7 @@ const updateTrainer = async (req, res) => {
       trainer.type = req.body.type;
       user.save(function (err) {
         if (err) {
-          res.status(500).json(err || 'Some error occurred while updating the contact.');
+          res.status(500).json(err || 'Some error occurred while updating the trainer.');
         } else {
           res.status(204).send();
         }
@@ -159,15 +159,15 @@ const deleteTrainer = async (req, res) => {
       res.status(400).send({ message: 'Invalid Username Supplied' });
       return;
     }
-    User.deleteOne({ username: username }, function (err, result) {
+    Trainer.deleteOne({ username: username }, function (err, result) {
       if (err) {
-        res.status(500).json(err || 'Some error occurred while deleting the contact.');
+        res.status(500).json(err || 'Some error occurred while deleting the trainer.');
       } else {
         res.status(204).send(result);
       }
     });
   } catch (err) {
-    res.status(500).json(err || 'Some error occurred while deleting the contact.');
+    res.status(500).json(err || 'Some error occurred while deleting the trainer.');
   }
   
   /*const userId = new ObjectId(req.params.id);

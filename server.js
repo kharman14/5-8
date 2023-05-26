@@ -13,6 +13,23 @@ app
   })
   .use('/', require('./routes'));
 
+  const db = require('./models');
+  db.mongoose
+    .connect(db.url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    .then(() => {
+      app.listen(port, () => {
+        console.log(`DB Connected and server running on ${port}.`);
+      });
+    })
+    .catch((err) => {
+      console.log('Cannot connect to the database!', err);
+      process.exit();
+    });
+
+  /*
 mongodb.initDb((err, mongodb) => {
   if (err) {
     console.log(err);
@@ -20,4 +37,4 @@ mongodb.initDb((err, mongodb) => {
     app.listen(port);
     console.log(`Connected to DB and listening on ${port}`);
   }
-});
+});*/

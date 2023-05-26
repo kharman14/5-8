@@ -5,12 +5,12 @@ const trainersController = require('../controllers/trainers');
 
 router.get('/', trainersController.getAll);
 
-router.get('/:id', trainersController.getSingle);
+router.get('/:username', trainersController.getSingle);
 
 router.post('/', trainersController.createTrainer);
 
-router.put('/:id', trainersController.updateTrainer);
+router.put('/:username', trainersController.updateTrainer);
 
-router.delete('/:id', trainersController.deleteTrainer);
+router.delete('/:username', trainersController.deleteTrainer);
 
 module.exports = router;
