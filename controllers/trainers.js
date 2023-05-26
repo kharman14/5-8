@@ -30,6 +30,16 @@ const getSingle = async (req, res, next) => {
 };
 
 const createTrainer = async (req, res) => {
+  if (!req.body.username || !req.body.password) {
+    res.status(400).send({ message: 'Content can not be empty!' });
+    return;
+  }
+  const password = req.body.password;
+  const passwordCheck = passwordUtil.passwordPass(password);
+  if (passwordCheck.error) {
+    res.status(400).send({ message: passwordCheck.error });
+    return;
+  }
   const trainer = {
     username: req.body.username,
     password: req.body.password,
@@ -49,6 +59,17 @@ const createTrainer = async (req, res) => {
 
 const updateTrainer = async (req, res) => {
   const username = req.params.username;
+    if (!username) {
+      res.status(400).send({ message: 'Invalid Username Supplied' });
+      return;
+    }
+    const password = req.body.password;
+    const passwordCheck = passwordUtil.passwordPass(password);
+    if (passwordCheck.error) {
+      res.status(400).send({ message: passwordCheck.error });
+      return;
+    }
+
   const trainer = {
     username: req.body.username,
     password: req.body.password,

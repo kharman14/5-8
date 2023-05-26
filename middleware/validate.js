@@ -2,8 +2,8 @@ const validator = require('../helpers/validate');
 
 const saveContact = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
+    username: 'required|string',
+    password: 'required|string',
     displayName: 'required|string',
     email: 'required|email',
     region: 'string',
