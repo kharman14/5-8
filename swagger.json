@@ -63,7 +63,7 @@
         }
       }
     },
-    "/trainers/{id}": {
+    "/trainers/{username}": {
       "get": {
         "description": "",
         "parameters": [
