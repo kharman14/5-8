@@ -72,6 +72,9 @@
           "201": {
             "description": "Created"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -119,10 +122,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "password": {
                   "example": "any"
                 },
-                "password": {
+                "username": {
                   "example": "any"
                 },
                 "displayName": {
@@ -173,16 +176,13 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/regions/{id}": {
+    "/regions/{region}": {
       "get": {
         "description": "",
         "produces": [
@@ -190,7 +190,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "region",
             "in": "path",
             "required": true,
             "type": "string"
@@ -199,6 +199,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
