@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getRegion = async (req, res, next) => {
   try {
-    const regionName = req.params.region;
+    const regionName = req.params.regionName;
     const result = await mongodb
       .getDb()
       .db()

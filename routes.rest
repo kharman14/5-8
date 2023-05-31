@@ -2,24 +2,27 @@
 ###
 GET http://localhost:8080/trainers
 ###
-GET http://localhost:8080/trainers/646faa55e0dbf9f86b44bce3
+GET http://localhost:8080/trainers/AKetchum
 ###
-GET http://localhost:8080/trainers/646fab86e0dbf9f86b44bce4
+GET http://localhost:8080/trainers/CeruleanGymLeader
 ###
-GET http://localhost:8080/trainers/646fac2de0dbf9f86b44bce5
+GET http://localhost:8080/trainers/letsGoh
+
+### 
+GET http://localhost:8080/regions/Kanto
 
 // PRODUCTION Deploy
 ###
 GET https://week5-8.onrender.com/trainers
 
 ### 
-GET https://week5-8.onrender.com/trainers/646faa55e0dbf9f86b44bce3
+GET https://week5-8.onrender.com/trainers/AKetchum
 
 ### 
-GET https://week5-8.onrender.com/trainers/646fab86e0dbf9f86b44bce4
+GET https://week5-8.onrender.com/trainers/CeruleanGymLeader
 
 ### 
-GET https://week5-8.onrender.com/trainers/646fac2de0dbf9f86b44bce5
+GET https://week5-8.onrender.com/trainers/letsGoh
 
 ///
 ///Lesson 3
@@ -29,10 +32,10 @@ GET https://week5-8.onrender.com/trainers/646fac2de0dbf9f86b44bce5
 ### Get all contacts
 GET http://localhost:8080/trainers
 
-### Get contact by id
+### Get contact by username
 GET http://localhost:8080/trainers/AKetchum
 
-### Create contact
+### Create trainer
 POST http://localhost:8080/trainers HTTP/1.1
 content-type: application/json
 {
@@ -47,7 +50,7 @@ content-type: application/json
     }
 }
 
-### PUT contact
+### PUT trainer
 PUT http://localhost:8080/contacts/6453de61560c75d5af8daa7d HTTP/1.1
 content-type: application/json
 {
@@ -62,43 +65,47 @@ content-type: application/json
     }
 }
 
-### DELETE contact
-DELETE http://localhost:8080/contacts/64556d79505fb7dc0840ca7b HTTP/1.1
+### DELETE trainer
+DELETE http://localhost:8080/contacts/D@wn10 HTTP/1.1
 
 // PRODUCTION Deploy
-### Get all contacts
+### Get all trainers
 GET https://week5-8.onrender.com/trainers
 
 
-### Get contact by id
-GET https://week5-8.onrender.com/contacts/6453de61560c75d5af8daa7d
+### Get trainer by username
+GET https://week5-8.onrender.com/trainers/letsGoh
 
 
-### Create contact
-POST https://week5-8.onrender.com/contacts HTTP/1.1
+### Create trainer
+POST https://week5-8.onrender.com/traienrs HTTP/1.1
 content-type: application/json
-
 {
-    "firstName":"Ashley",
-    "lastName":"Weaver",
-    "email":"aWeaver@test.com",
-    "favoriteColor":"Brown",
-    "birthday":"06/19/2000"
+    "username":"D@wn10",
+    "password":"c00rdin@tor",
+    "displayName":"Dawn",
+    "email": "dawn10@pokemon.com",
+    "info": {
+        "region": "Sinnoh",
+        "pokemon": "Piplup",
+        "type": "Water"
+    }
 }
 
-
-### PUT contact
-PUT https://week5-8.onrender.com/contacts/6453de61560c75d5af8daa7d HTTP/1.1
+### PUT trainer
+PUT https://week5-8.onrender.com/trainers/letsGoh HTTP/1.1
 content-type: application/json
+    {
+        "username":"letsGoh",
+        "password":"futur3re@lity",
+        "displayName":"Goh",
+        "email": "letsGoh@pokemon.com",
+        "info": {
+            "region": "Kanto",
+            "pokemon": "Scorbunny",
+            "type": "Fire"
+        }
+    }
 
-{
-    "firstName":"Krissie",
-    "lastName":"Jones",
-    "email":"kJones@test.com",
-    "favoriteColor":"Black",
-    "birthday":"01/26/94"
-}
-
-
-### DELETE contact
-DELETE https://week5-8.onrender.com/contacts/64556dbd92456e69163719cd HTTP/1.1
+### DELETE trainer
+DELETE https://week5-8.onrender.com/trainer/D@wn10 HTTP/1.1
