@@ -19,6 +19,9 @@ GET https://week5-8.onrender.com/trainers
 GET https://week5-8.onrender.com/trainers/AKetchum
 
 ### 
+GET https://week5-8.onrender.com/regions/Kanto
+
+### 
 GET https://week5-8.onrender.com/trainers/CeruleanGymLeader
 
 ### 
