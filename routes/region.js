@@ -3,6 +3,6 @@ const router = express.Router();
 
 const regionsController = require('../controllers/region');
 
-router.get('/:id', regionsController.getRegion);
+router.get('/:regionName', regionsController.getRegion);
 
 module.exports = router;

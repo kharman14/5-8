@@ -17,16 +17,16 @@ const getAll = async (req, res, next) => {
 const getSingle = async (req, res, next) => {
   try {
     const username = req.params.username;
-  const result = await mongodb
+    const result = await mongodb
     .getDb()
     .db()
     .collection('trainers')
     .find({ username: username });
-  result.toArray().then((lists) => {
+    result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
   })
-} catch(err) {
+  } catch(err) {
     res.status(400).json({ message: err });
   };
 };
