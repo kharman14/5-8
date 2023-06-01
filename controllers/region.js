@@ -21,7 +21,7 @@ const getRegion = async (req, res, next) => {
 const updateRegion = async (req, res) => {
   try {
     const regionName = req.params.regionName;
-      if (!username) {
+      if (!regionName) {
         res.status(400).send({ message: 'Invalid regionName Supplied' });
         return;
       }
@@ -34,7 +34,7 @@ const updateRegion = async (req, res) => {
       .getDb()
       .db()
       .collection('regions')
-      .replaceOne({ username: username }, region);
+      .replaceOne({ regionName: regionName }, region);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -49,7 +49,7 @@ const updateRegion = async (req, res) => {
 const deleteRegion = async (req, res) => {
   try {
     const regionName = req.params.regionName;
-    if (!username) {
+    if (!regionName) {
       res.status(400).send({ message: 'Invalid RegionName Supplied' });
       return;
     }
