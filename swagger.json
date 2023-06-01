@@ -271,16 +271,10 @@
         }
       }
     },
-    "/{regions}/regionName": {
+    "/regions/": {
       "post": {
         "description": "",
         "parameters": [
-          {
-            "name": "regions",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
