@@ -18,4 +18,51 @@ const getRegion = async (req, res, next) => {
   };
 };
 
-module.exports = { getRegion };
+const updateRegion = async (req, res) => {
+  try {
+    const regionName = req.params.regionName;
+      if (!username) {
+        res.status(400).send({ message: 'Invalid regionName Supplied' });
+        return;
+      }
+
+    const region = {
+      regionName: req.body.regionName,
+      description: req.body.description
+    };
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('regions')
+      .replaceOne({ username: username }, region);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while updating the region.');
+    }
+  } catch(err) {
+    res.status(400).json({ message: err });
+  }
+};
+
+const deleteRegion = async (req, res) => {
+  try {
+    const regionName = req.params.regionName;
+    if (!username) {
+      res.status(400).send({ message: 'Invalid RegionName Supplied' });
+      return;
+    }
+    const response = await mongodb.getDb().db().collection('regions').deleteOne({ regionName: regionName}, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while deleting the region.');
+    }
+  } catch(err) {
+    res.status(400).json({ message: err });
+  }
+};
+
+module.exports = { getRegion, updateRegion, deleteRegion };
