@@ -20,7 +20,8 @@ const getRegion = async (req, res, next) => {
 
 const createRegion = async (req, res) => {
   try {
-    if (!req.body.regionName) {
+    const regionName = req.params.regionName;
+    if (!regionName) {
       res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }
