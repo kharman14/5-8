@@ -7,7 +7,7 @@ const validation = require('../middleware/validate');
 
 router.get('/:regionName', regionsController.getRegion);
 
-router.post(':/regionName', validation.saveRegion, regionsController.createRegion);
+router.post('/', validation.saveRegion, regionsController.createRegion);
 
 router.put('/:regionName', validation.saveRegion, regionsController.updateRegion); 
 
