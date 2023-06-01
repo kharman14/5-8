@@ -53,6 +53,10 @@ const deleteRegion = async (req, res) => {
       res.status(400).send({ message: 'Invalid RegionName Supplied' });
       return;
     }
+    if (!req.oidc.isAuthenticated()) {
+      res.status(400).send({ message: 'Login to delete region' });
+      return;
+    }
     const response = await mongodb.getDb().db().collection('regions').deleteOne({ regionName: regionName}, true);
     console.log(response);
     if (response.deletedCount > 0) {
