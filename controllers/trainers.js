@@ -37,6 +37,10 @@ const createTrainer = async (req, res) => {
       res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }
+    if (!req.oidc.isAuthenticated()) {
+      res.status(400).send({ message: 'Login to create trainer' });
+      return;
+    }
     const password = req.body.password;
     const passwordCheck = passwordUtil.passwordPass(password);
     if (passwordCheck.error) {
@@ -68,6 +72,10 @@ const updateTrainer = async (req, res) => {
     const username = req.params.username;
       if (!username) {
         res.status(400).send({ message: 'Invalid Username Supplied' });
+        return;
+      }
+      if (!req.oidc.isAuthenticated()) {
+        res.status(400).send({ message: 'Login to update trainer' });
         return;
       }
       const password = req.body.password;
@@ -107,6 +115,10 @@ const deleteTrainer = async (req, res) => {
     const username = req.params.username;
     if (!username) {
       res.status(400).send({ message: 'Invalid Username Supplied' });
+      return;
+    }
+    if (!req.oidc.isAuthenticated()) {
+      res.status(400).send({ message: 'Login to delete trainer' });
       return;
     }
     const response = await mongodb.getDb().db().collection('trainers').deleteOne({ username: username}, true);

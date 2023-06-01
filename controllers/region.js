@@ -25,7 +25,10 @@ const updateRegion = async (req, res) => {
         res.status(400).send({ message: 'Invalid regionName Supplied' });
         return;
       }
-
+      if (!req.oidc.isAuthenticated()) {
+        res.status(400).send({ message: 'Login to update region' });
+        return;
+      }
     const region = {
       regionName: req.body.regionName,
       description: req.body.description
