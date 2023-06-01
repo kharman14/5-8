@@ -18,6 +18,31 @@ const getRegion = async (req, res, next) => {
   };
 };
 
+const createRegion = async (req, res) => {
+  try {
+    if (!req.body.regionName) {
+      res.status(400).send({ message: 'Content can not be empty!' });
+      return;
+    }
+    if (!req.oidc.isAuthenticated()) {
+      res.status(400).send({ message: 'Login to create region' });
+      return;
+    }
+    const region = {
+      regionName: req.body.regionName,
+      description: req.body.description
+    };
+    const response = await mongodb.getDb().db().collection('regions').insertOne(region);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while creating the region.');
+    }
+  } catch(err) {
+    res.status(400).json({ message: err });
+  }
+};
+
 const updateRegion = async (req, res) => {
   try {
     const regionName = req.params.regionName;
@@ -72,4 +97,4 @@ const deleteRegion = async (req, res) => {
   }
 };
 
-module.exports = { getRegion, updateRegion, deleteRegion };
+module.exports = { getRegion, createRegion, updateRegion, deleteRegion };
